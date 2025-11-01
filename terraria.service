@@ -1,0 +1,17 @@
+[Unit]
+Description=Terraria Dedicated Server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=steam
+WorkingDirectory=/home/steam
+ExecStart=/home/steam/terraria/TerrariaServer.bin.x86_64 -world "/home/steam/.local/share/Terraria/Worlds/World2.wld" -port 7777 -players 8 -secure
+Restart=no
+StandardOutput=journal
+StandardError=journal
+LimitNOFILE=100000
+CPUQuota=150%
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,16 @@
+[Unit]
+Description=TrinityCore World Server
+Wants=network-online.target
+After=network-online.target
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/TrinityCore/build/bin/RelWithDebInfo/bin
+ExecStart=/root/TrinityCore/build/bin/RelWithDebInfo/bin/worldserver
+Restart=no
+StandardOutput=journal
+StandardError=journal
+LimitNOFILE=1048576
+
+[Install]
+WantedBy=multi-user.target
