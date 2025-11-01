@@ -1,0 +1,12 @@
+[Unit]
+Description=Cloudflare Tunnel (remote-guac)
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/cloudflared --config /etc/cloudflared/remote-guac.yml tunnel run
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target
